@@ -9,8 +9,40 @@
 <body>
     <h1>While loop Test</h1>
     <p>Click the button to start the while loop.</p>
-    <button id="startLoop">Start Loop</button>
-    <div id="output"></div>
+    <div class="twobuttons">
+        <button id="startLoop">Start Loop</button>
+    <button id="restart">restart</button>
+    </div>
+    
+    <div id="output-container" class="output-container">
+        <p class="initial-message">Output နေရာတွင် loop ၏ ရလဒ်များ ပေါ်လာမည်...</p>
+    </div>
+    <div class="code-block"></div>
+    <h3>JavaScript ကုဒ်နမူနာ</h3>
+    <pre>
+        <code>
+        document.getElementById('startLoop').addEventListener('click', function() {
+    let i = 0;
+    const outputContainer = document.getElementById('output-container');
+    outputContainer.innerHTML = ''; // Loop အသစ်မစခင် အရင် output တွေကို ရှင်းလင်းပါ
+
+    while (i < 5) {
+        const outputItem = document.createElement('div');
+        outputItem.classList.add('output-item');
+        outputItem.textContent = `whileloop(iteration): ${i}`;
+        outputContainer.appendChild(outputItem);
+        i++;
+    }
+});
+
+document.getElementById('restart').addEventListener('click', function() {
+    const outputContainer = document.getElementById('output-container');
+    // အရင် output တွေကို ရှင်းလင်းပြီး မူရင်းစာသားကို ပြန်ထည့်ပါ
+    outputContainer.innerHTML = '<p class="initial-message">Output နေရာတွင် loop ၏ ရလဒ်များ ပေါ်လာမည်...</p>'; 
+});
+        </code>
+    
+    
     <script src="script.js"></script>
     
 </body>
